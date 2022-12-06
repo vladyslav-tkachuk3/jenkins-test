@@ -7,14 +7,22 @@ pipeline {
     label 'buildin'
   }
   stages {
-    stage('first step') {
+    stage('delete workspace before build starts') {
       steps {
-        echo 'hello world'
+        echo 'deleting workspace'
+        deleteDir()
       }
     }
     stage('checkout') {
       steps {
         git branch: 'main', url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
+      }
+    }
+    stage('build docker image') {
+      steps {
+        dir('ci-pipeline/docker') {
+          sh 'docker build -t spyderco/jenkins-images:0.1 .'
+        }
       }
     }
   }
