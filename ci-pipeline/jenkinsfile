@@ -21,6 +21,7 @@ pipeline {
     stage('build docker image') {
       steps {
         dir('ci-pipeline/docker') {
+          sh 'docker system prune -a --volumes'
           sh 'docker build -t alpine .'
           sh 'docker images'
         }
