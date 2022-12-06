@@ -21,7 +21,7 @@ pipeline {
     stage('build docker image') {
       steps {
         dir('ci-pipeline/docker') {
-          sh 'docker build -t spyderco/jenkins-images:0.1 .'
+          sh 'docker build -t alpine .'
         }
       }
     }
