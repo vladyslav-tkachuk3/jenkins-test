@@ -12,5 +12,10 @@ pipeline {
         echo 'hello world'
       }
     }
+    stage('checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
+      }
+    }
   }
 }
