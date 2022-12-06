@@ -21,7 +21,7 @@ pipeline {
     stage('build docker image') {
       steps {
         dir('ci-pipeline/docker') {
-          sudo sh 'docker build -t alpine .'
+          sh 'docker build -t alpine .'
         }
       }
     }
