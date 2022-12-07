@@ -33,7 +33,6 @@ pipeline {
     }
     stage('tag docker image') {
       steps {
-        sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:latest'
         sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:5'
       }
     }
