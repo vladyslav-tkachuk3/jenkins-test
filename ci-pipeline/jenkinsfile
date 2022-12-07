@@ -25,7 +25,7 @@ pipeline {
     stage('build docker image') {
       steps {
         dir('ci-pipeline/docker') {
-          sh 'docker system prune -a --volumes f'
+          sh 'docker system prune -a --volumes -f'
           sh 'docker build -t ${IMAGE_REPO}/${IMAGE_NAME}:latest .'
           sh 'docker images'
         }
