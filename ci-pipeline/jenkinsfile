@@ -9,6 +9,7 @@ pipeline {
   stages {
     stage('delete workspace before build starts') {
       steps {
+        echo $BUILD_NUMBER
         echo 'deleting workspace'
         deleteDir()
       }
