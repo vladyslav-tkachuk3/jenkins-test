@@ -24,6 +24,13 @@ pipeline {
           sh 'docker system prune -a --volumes'
           sh 'docker build -t alpine .'
           sh 'docker images'
+          sh 'docker info'
+        }
+      }
+    }
+    stage('push docker image to dockerhub') {
+      steps {
+
         }
       }
     }
