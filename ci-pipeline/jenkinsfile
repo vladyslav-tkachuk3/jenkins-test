@@ -33,7 +33,7 @@ pipeline {
     }
     stage('tag docker image') {
       steps {
-        sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:${env.BUILD_ID}'
+        sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:${BUILD_NUMBER}'
       }
     }
     stage('push docker image to dockerhub') {
