@@ -10,6 +10,7 @@ pipeline {
     stage('delete workspace before build starts') {
       steps {
         echo 'deleting workspace'
+        echo ${BUILD_NUMBER}
         deleteDir()
       }
     }
@@ -25,6 +26,11 @@ pipeline {
           sh 'docker build -t vladyslavtkachuk3/alpine:latest .'
           sh 'docker images'
         }
+      }
+    }
+    stage('tag docker image') {
+      steps {
+        sh 'docker tag vladyslavtkachuk3/alpine:latest vladyslavtkachuk3/alpine:latest'
       }
     }
     stage('push docker image to dockerhub') {
