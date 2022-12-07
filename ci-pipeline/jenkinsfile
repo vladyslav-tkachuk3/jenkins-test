@@ -22,7 +22,7 @@ pipeline {
       steps {
         dir('ci-pipeline/docker') {
           sh 'docker system prune -a --volumes'
-          sh 'docker build -t alpine .'
+          sh 'docker build -t vladyslavtkachuk3/alpine:latest .'
           sh 'docker images'
         }
       }
