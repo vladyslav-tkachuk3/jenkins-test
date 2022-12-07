@@ -25,12 +25,14 @@ pipeline {
     stage('build docker image') {
       steps {
         dir('ci-pipeline/docker') {
-          sh 'docker system prune -a --volumes -f'
-          sh 'docker build -t ${IMAGE_REPO}/${IMAGE_NAME}:latest .'
+          sh 'docker-compose build'
+          //sh 'docker system prune -a --volumes -f'
+          //sh 'docker build -t ${IMAGE_REPO}/${IMAGE_NAME}:latest .'
           sh 'docker images'
         }
       }
     }
+    /*
     stage('tag docker image') {
       steps {
         sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:latest'
@@ -43,6 +45,6 @@ pipeline {
           sh 'docker push ${IMAGE_REPO}/${IMAGE_NAME}:${BUILD_NUMBER}'
         }
       }
-    }
+    }*/
   }
 }
