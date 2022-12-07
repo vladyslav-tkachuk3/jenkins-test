@@ -14,7 +14,6 @@ pipeline {
     stage('delete workspace before build starts') {
       steps {
         echo 'deleting workspace'
-        echo ${env.BUILD_ID}
         deleteDir()
       }
     }
@@ -35,6 +34,7 @@ pipeline {
     stage('tag docker image') {
       steps {
         sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:latest'
+        sh 'docker tag ${IMAGE_REPO}/${IMAGE_NAME}:latest ${IMAGE_REPO}/${IMAGE_NAME}:${env.BUILD_ID}'
       }
     }
     stage('push docker image to dockerhub') {
