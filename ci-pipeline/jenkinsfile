@@ -11,16 +11,7 @@ pipeline {
     IMAGE_NAME = 'alpine'
   }
   parameters {
-    gitParameter(branch: '',
-                 branchFilter: 'origin/(.*)',
-                 defaultValue: 'main',
-                 description: '',
-                 name: 'BRANCH',
-                 quickFilterEnabled: false,
-                 selectedValue: 'NONE',
-                 sortMode: 'NONE',
-                 tagFilter: '*',
-                 type: 'PT_BRANCH')
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
   }
   stages {
     stage('delete workspace before build starts') {
