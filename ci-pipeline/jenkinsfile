@@ -22,7 +22,7 @@ pipeline {
     }
     stage('clone repository') {
       steps {
-        git branch: '${params.BRANCH}', url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
+        git branch: '${params.BRANCH}', url: 'git@github.com:vladyslav-tkachuk3/jenkins-test.git'
       }
     }
     stage('build docker image') {
