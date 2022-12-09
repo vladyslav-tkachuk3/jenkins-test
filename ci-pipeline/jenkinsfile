@@ -10,6 +10,18 @@ pipeline {
     IMAGE_REPO = 'vladyslavtkachuk3'
     IMAGE_NAME = 'alpine'
   }
+  parameters {
+    gitParameter(branch: '',
+                 branchFilter: 'origin/(.*)',
+                 defaultValue: 'main',
+                 description: '',
+                 name: 'BRANCH',
+                 quickFilterEnabled: false,
+                 selectedValue: 'NONE',
+                 sortMode: 'NONE',
+                 tagFilter: '*',
+                 type: 'PT_BRANCH')
+  }
   stages {
     stage('delete workspace before build starts') {
       steps {
@@ -19,7 +31,7 @@ pipeline {
     }
     stage('clone repository') {
       steps {
-        git branch: 'main', url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
+        git branch: '${params.BRANCH}', url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
       }
     }
     stage('build docker image') {
