@@ -1,1 +1,23 @@
 
+#! groovy
+
+properties([disableConcurrentBuilds()])
+
+pipeline {
+  agent {
+    label 'buildin'
+  }
+  environment {
+    BRANCH_NAME = 'feature-3'
+  }
+  parameters {
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: '${BRANCH_NAME}', name: 'BRANCH', type: 'PT_BRANCH'
+  }
+  stages {
+    stage('clone repository') {
+      steps {
+        git branch: "${params.BRANCH}", url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
+      }
+    }
+  }
+}
