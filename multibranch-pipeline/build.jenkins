@@ -8,10 +8,7 @@ pipeline {
     label 'buildin'
   }
   environment {
-    BRANCH_NAME = 'feature-3'
-  }
-  parameters {
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: '${BRANCH_NAME}', name: 'BRANCH', type: 'PT_BRANCH'
+    BRANCH = 'feature-3'
   }
   stages {
     stage('clone repository') {
