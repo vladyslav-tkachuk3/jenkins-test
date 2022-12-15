@@ -3,8 +3,6 @@ MAINTAINER Vladyslav_Tkachuk3@epam.com
 
 WORKDIR APP
 
-AND . api/app.py /app/ 
-
 RUN apt-get update && apt-get install make
 
 RUN pip install --upgrade pip && pip install -r requirements.txt 
