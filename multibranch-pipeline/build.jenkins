@@ -26,4 +26,9 @@ pipeline {
       }
     }
   }
+  post {
+    failure {
+      setBuildStatus("Build failed", "FAILURE");
+    }
+  }
 }
