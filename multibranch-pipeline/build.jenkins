@@ -18,5 +18,12 @@ pipeline {
         git branch: "${params.BRANCH}", url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
       }
     }
+    stage('lint dockerfile') {
+      steps {
+        dir('multibranch-pipeline/docker') {
+          sh 'docker run --rm -i hadolint/hadolint < dockerfile'
+        }
+      }
+    }
   }
 }
