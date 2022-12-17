@@ -1,14 +1,14 @@
 pipeline {
   agent any
   
+  parameters {
+    choice choices: ['dev', 'qa'], name: 'deploy_environment'
+  }
+
   stages {
     stage('build') {
-      environment {
-        env_name = sh(returnStdout: true, script: 'echo sdfsdf').trim()
-      }
       steps {
-        //sh 'env'
-        sh 'echo $env_name'
+        sh 'echo ${params.deploy_environment}'
       }
     }
   }
