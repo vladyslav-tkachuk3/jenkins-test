@@ -8,7 +8,7 @@ pipeline {
       }
       steps {
         sh 'env'
-        sh 'echo $AOEU'
+        sh 'echo $env_name'
       }
     }
   }
