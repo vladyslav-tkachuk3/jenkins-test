@@ -7,7 +7,7 @@ pipeline {
         env_name = sh(returnStdout: true, script: 'echo sdfsdf').trim()
       }
       steps {
-        sh 'env'
+        //sh 'env'
         sh 'echo $env_name'
       }
     }
