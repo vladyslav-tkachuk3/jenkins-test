@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+  
+  stages {
+    stage('build') {
+      environment {
+        env_name = sh(returnStdout: true, script: 'echo env_name').trim()
+      }
+      steps {
+        sh 'env'
+        sh 'echo $AOEU'
+      }
+    }
+  }
+}
