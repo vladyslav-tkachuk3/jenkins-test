@@ -8,7 +8,7 @@ pipeline {
   }
   environment {
     IMAGE_REPO = 'vladyslavtkachuk3'
-    IMAGE_NAME = 'alpine'
+    IMAGE_NAME = 'ubuntu'
     BRANCH_NAME = 'main'
   }
   parameters {
