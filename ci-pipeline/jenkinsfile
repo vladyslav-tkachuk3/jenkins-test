@@ -26,13 +26,14 @@ pipeline {
         git branch: "${params.BRANCH}", url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
       }
     }
+    /*
     stage('scan') {
       steps {
         withSonarQubeEnv(installationName: 'sq1') {
           sh './mwnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
         }
       }
-    }
+    }*/
     stage('build docker image') {
       steps {
         dir('ci-pipeline/docker') {
