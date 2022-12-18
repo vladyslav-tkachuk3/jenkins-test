@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('pull image') {
       steps {
-        sh "docker pull vladyslavtkachuk3/alpine:${params.deploy_environment}"
+        sh "docker pull vladyslavtkachuk3/alpine:${params.version}"
       }
     }
   }
