@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('build') {
       agent {
-        label 'buildin'
+        label 'builfdin'
       }
       steps {
         sh "echo ${params.deploy_environment}"
