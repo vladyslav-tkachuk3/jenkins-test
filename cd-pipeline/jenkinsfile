@@ -16,5 +16,10 @@ pipeline {
         sh "echo ${params.version}"
       }
     }
+    stage('pull image') {
+      steps {
+        sh "echo 'pull image'"
+      }
+    }
   }
 }
