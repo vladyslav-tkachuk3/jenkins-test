@@ -7,15 +7,9 @@ pipeline {
     choice choices: ['76', '74', '73', '65'], name: 'version'
   }
   stages {
-    stage('build') {
-      steps {
-        sh "echo ${params.deploy_environment}"
-        sh "echo ${params.version}"
-      }
-    }
     stage('pull image') {
       steps {
-        sh "echo 'pull image'"
+        sh "docker pull vladyslavtkachuk3/alpine:${params.deploy_environment}"
       }
     }
   }
