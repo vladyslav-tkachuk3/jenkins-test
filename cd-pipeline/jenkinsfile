@@ -3,12 +3,14 @@ pipeline {
   
   parameters {
     choice choices: ['dev', 'qa'], name: 'deploy_environment'
+    choice choices: ['76', '74', '73', '65'], name: 'version'
   }
 
   stages {
     stage('build') {
       steps {
         sh "echo ${params.deploy_environment}"
+        sh "echo ${params.version}"
       }
     }
   }
