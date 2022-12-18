@@ -2,14 +2,14 @@ pipeline {
   agent none
   
   parameters {
-    choice choices: ['dev', 'qa'], name: 'deploy_environment'
+    choice choices: ['buildin', 'dev', 'qa'], name: 'deploy_environment'
     choice choices: ['76', '74', '73', '65'], name: 'version'
   }
 
   stages {
     stage('build') {
       agent {
-        label 'builfdin'
+        label '${params.version}'
       }
       steps {
         sh "echo ${params.deploy_environment}"
