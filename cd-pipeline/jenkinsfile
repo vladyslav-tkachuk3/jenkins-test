@@ -2,6 +2,10 @@ pipeline {
   agent {
     label "${params.deploy_environment}"
   }
+  environment {
+    IMAGE_REPO = 'vladyslavtkachuk3'
+    IMAGE_NAME = 'ubuntu'
+  }
   parameters {
     choice choices: ['buildin', 'dev', 'qa'], name: 'deploy_environment'
     choice choices: ['76', '74', '73', '65'], name: 'version'
@@ -9,7 +13,7 @@ pipeline {
   stages {
     stage('pull image') {
       steps {
-        sh "docker pull vladyslavtkachuk3/alpine:${params.version}"
+        sh "docker pull ${env.IMAGE_REPO}/${env.IMAGE_NAME}:${params.version}"
       }
     }
   }
