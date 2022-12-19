@@ -13,8 +13,9 @@ pipeline {
   stages {
     stage('deploy') {
       steps {
-        sh "docker pull ${env.IMAGE_REPO}/${env.IMAGE_NAME}:${params.version}"
-        sh "docker run --name myimage -d -p 80:80 ubuntu:1.0"
+        sh 'docker pull ${env.IMAGE_REPO}/${env.IMAGE_NAME}:${params.version}'
+        sh 'docker images'
+        sh 'docker run --name myimage -d -p 80:80 ubuntu:1.0'
       }
     }
   }
