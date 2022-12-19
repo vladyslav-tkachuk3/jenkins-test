@@ -8,7 +8,7 @@ pipeline {
   }
   parameters {
     choice choices: ['buildin', 'dev', 'qa'], name: 'deploy_environment'
-    choice choices: ['76', '74', '73', '65'], name: 'version'
+    choice choices: ['85', '84', '83', '82'], name: 'version'
   }
   stages {
     stage('pull image') {
