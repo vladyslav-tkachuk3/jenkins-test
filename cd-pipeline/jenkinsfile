@@ -14,6 +14,7 @@ pipeline {
     stage('pull image') {
       steps {
         sh "docker pull ${env.IMAGE_REPO}/${env.IMAGE_NAME}:${params.version}"
+        sh "docker images"
       }
     }
   }
