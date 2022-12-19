@@ -11,10 +11,10 @@ pipeline {
     choice choices: ['85', '84', '83', '82'], name: 'version'
   }
   stages {
-    stage('pull image') {
+    stage('deploy') {
       steps {
         sh "docker pull ${env.IMAGE_REPO}/${env.IMAGE_NAME}:${params.version}"
-        sh "docker images"
+        sh "docker run --name myimage -d -p 80:80 ubuntu:1.0"
       }
     }
   }
