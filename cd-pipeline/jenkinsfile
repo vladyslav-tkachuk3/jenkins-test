@@ -13,8 +13,8 @@ pipeline {
   stages {
     stage('deploy') {
       steps {
-        sh 'docker ps -a -q'
-        //sh 'docker stop $(docker ps -a -q)'
+        //sh 'docker ps -a -q'
+        sh 'docker stop $(docker ps -a -q)'
         //sh 'docker rm $(docker ps -a -q)'
         //sh "docker pull ${env.IMAGE_REPO}/${env.IMAGE_NAME}:${params.version}"
         //sh "docker images"
