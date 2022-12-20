@@ -20,7 +20,7 @@ pipeline {
     }
     stage('healthcheck') {
       steps {
-        sh 'curl --fail http://localhost:80 || exit 1'
+        sh 'curl --fail http://localhost:8080 || exit 1'
       }
     }
     stage('clean') {
