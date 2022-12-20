@@ -18,6 +18,11 @@ pipeline {
         sh "docker run --name myimage -d -p 80:80 ubuntu:latest"
       }
     }
+    stage('healthcheck') {
+      steps {
+        sh 'curl --fail http://localhost:80 || exit 1'
+      }
+    }
     stage('clean') {
       steps {
         sh 'docker stop $(docker ps -a -q)'
