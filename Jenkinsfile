@@ -6,7 +6,7 @@ pipeline {
 	stages {
 	    stage('Git CheckOut') {
 		    steps {
-			   git branch: 'main', credentialsId: 'My private token login creds', url: 'https://github.com/logicopslab/WebAppForJenkins.git'
+			   git branch: 'artifactory', credentialsId: 'github-credentials', url: 'https://github.com/vladyslav-tkachuk3/jenkins-test.git'
 			}
 		}
         stage('Clean and Install') {
