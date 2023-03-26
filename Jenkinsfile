@@ -22,10 +22,10 @@ pipeline {
 	stage ('Server'){
             steps {
                rtServer (
-                 id: "Artifactory",
-                 url: 'http://localhost:8082/artifactory',
-                 username: 'ravish',
-                  password: 'YouPasswordHere',
+                 id: "artifactory-center",
+                 url: 'http://20.0.186.254:8082/artifactory',
+                 username: 'vladyslav',
+                  password: 'Aa_4815162342',
                   bypassProxy: true,
                    timeout: 300
                         )
@@ -34,12 +34,12 @@ pipeline {
         stage('Upload'){
             steps{
                 rtUpload (
-                 serverId:"Artifactory" ,
+                 serverId:"artifactory-center" ,
                   spec: '''{
                    "files": [
                       {
                       "pattern": "*.war",
-                      "target": "logic-ops-lab-libs-snapshot-local"
+                      "target": "test-artifactory-libs-snapshot-local"
                       }
                             ]
                            }''',
@@ -49,7 +49,7 @@ pipeline {
         stage ('Publish build info') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: "Artifactory"
+                    serverId: "artifactory-center"
                 )
             }
         }
