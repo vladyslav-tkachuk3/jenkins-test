@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	tools {
-		maven 'apache-maven-3.8.7' 
+		maven '3.8.7' 
     	}
 	stages {
 	    stage('Git CheckOut') {
